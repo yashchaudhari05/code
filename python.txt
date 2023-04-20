@@ -1,0 +1,653 @@
+{
+  "metadata": {
+    "language_info": {
+      "codemirror_mode": {
+        "name": "python",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.8"
+    },
+    "kernelspec": {
+      "name": "python",
+      "display_name": "Python (Pyodide)",
+      "language": "python"
+    }
+  },
+  "nbformat_minor": 4,
+  "nbformat": 4,
+  "cells": [
+    {
+      "cell_type": "code",
+      "source": "import numpy as np\nnp.__version__",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "execution_count": 4,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "'1.24.2'"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "L = list(range(10))\n[str(c) for c in L]\n['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "execution_count": 6,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "[type(item) for item in L]",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "execution_count": 11,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "[int, int, int, int, int, int, int, int, int, int]"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "np.zeros(10, dtype='int')",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "execution_count": 12,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "np.ones((3,5), dtype=float)",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "execution_count": 13,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([[1., 1., 1., 1., 1.],\n       [1., 1., 1., 1., 1.],\n       [1., 1., 1., 1., 1.]])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "np.full((3,5),1.23)",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "execution_count": 14,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([[1.23, 1.23, 1.23, 1.23, 1.23],\n       [1.23, 1.23, 1.23, 1.23, 1.23],\n       [1.23, 1.23, 1.23, 1.23, 1.23]])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "np.arange(0, 20, 2)",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "execution_count": 15,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([ 0,  2,  4,  6,  8, 10, 12, 14, 16, 18])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "np.linspace(0, 1, 5)",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "execution_count": 16,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([0.  , 0.25, 0.5 , 0.75, 1.  ])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "np.random.normal(0, 1, (3,3))",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "execution_count": 17,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([[ 0.15827122,  0.83275579, -0.36265561],\n       [ 0.07562821, -0.43015947, -0.37054683],\n       [ 1.02269042,  0.91796927,  0.67863548]])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "np.eye(3)",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "execution_count": 18,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([[1., 0., 0.],\n       [0., 1., 0.],\n       [0., 0., 1.]])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "np.random.seed(0)\nx1 = np.random.randint(10, size=6) \nx2 = np.random.randint(10, size=(3,4)) \nx3 = np.random.randint(10, size=(3,4,5))\nprint(\"x3 ndim:\", x3.ndim)\nprint(\"x3 shape:\", x3.shape)\nprint(\"x3 size: \", x3.size)",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 21,
+      "outputs": [
+        {
+          "name": "stdout",
+          "text": "x3 ndim: 3\nx3 shape: (3, 4, 5)\nx3 size:  60\n",
+          "output_type": "stream"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x1 = np.array([4, 3, 4, 4, 8, 4])\nx1",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 22,
+      "outputs": [
+        {
+          "execution_count": 22,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([4, 3, 4, 4, 8, 4])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x1[0]",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 23,
+      "outputs": [
+        {
+          "execution_count": 23,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "4"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x1[0]",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 24,
+      "outputs": [
+        {
+          "execution_count": 24,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "4"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x1[-1]",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 25,
+      "outputs": [
+        {
+          "execution_count": 25,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "4"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x1[-2]",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 26,
+      "outputs": [
+        {
+          "execution_count": 26,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "8"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x2 = np.array([[3, 7, 5, 5],\n      [0, 1, 5, 9],\n      [3, 0, 5, 0]])\nx2",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 27,
+      "outputs": [
+        {
+          "execution_count": 27,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([[3, 7, 5, 5],\n       [0, 1, 5, 9],\n       [3, 0, 5, 0]])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x2[2,3]",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 28,
+      "outputs": [
+        {
+          "execution_count": 28,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "0"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x2[2,-1]",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 29,
+      "outputs": [
+        {
+          "execution_count": 29,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "0"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x2[0,0] = 12\nx2",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 30,
+      "outputs": [
+        {
+          "execution_count": 30,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([[12,  7,  5,  5],\n       [ 0,  1,  5,  9],\n       [ 3,  0,  5,  0]])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x = np.arange(10)\nx",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 31,
+      "outputs": [
+        {
+          "execution_count": 31,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x[:5]",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 32,
+      "outputs": [
+        {
+          "execution_count": 32,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([0, 1, 2, 3, 4])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x[4:]",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 33,
+      "outputs": [
+        {
+          "execution_count": 33,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([4, 5, 6, 7, 8, 9])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x[4:7]",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 34,
+      "outputs": [
+        {
+          "execution_count": 34,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([4, 5, 6])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x[ : : 2]",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 35,
+      "outputs": [
+        {
+          "execution_count": 35,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([0, 2, 4, 6, 8])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x[1::2]",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 36,
+      "outputs": [
+        {
+          "execution_count": 36,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([1, 3, 5, 7, 9])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x[::-1]",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 37,
+      "outputs": [
+        {
+          "execution_count": 37,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x = np.array([1, 2, 3])\ny = np.array([3, 2, 1])\nz = [21,21,21]\nnp.concatenate([x, y,z])",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 38,
+      "outputs": [
+        {
+          "execution_count": 38,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([ 1,  2,  3,  3,  2,  1, 21, 21, 21])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "grid = np.array([[1,2,3],[4,5,6]])\nnp.concatenate([grid,grid])",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 39,
+      "outputs": [
+        {
+          "execution_count": 39,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([[1, 2, 3],\n       [4, 5, 6],\n       [1, 2, 3],\n       [4, 5, 6]])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "np.concatenate([grid,grid],axis=1)",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 40,
+      "outputs": [
+        {
+          "execution_count": 40,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([[1, 2, 3, 1, 2, 3],\n       [4, 5, 6, 4, 5, 6]])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x = np.array([3,4,5])\ngrid = np.array([[1,2,3],[17,18,19]])\nnp.vstack([x,grid])",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 41,
+      "outputs": [
+        {
+          "execution_count": 41,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([[ 3,  4,  5],\n       [ 1,  2,  3],\n       [17, 18, 19]])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "z = np.array([[9],[9]])\nnp.hstack([grid,z])",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 42,
+      "outputs": [
+        {
+          "execution_count": 42,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([[ 1,  2,  3,  9],\n       [17, 18, 19,  9]])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x = np.arange(10)\nx",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 43,
+      "outputs": [
+        {
+          "execution_count": 43,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "x1,x2,x3 = np.split(x,[3,6])\nprint (x1,x2,x3)",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 46,
+      "outputs": [
+        {
+          "name": "stdout",
+          "text": "[0 1 2] [3 4 5] [6 7 8 9]\n",
+          "output_type": "stream"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "grid = np.arange(16).reshape((4,4))\ngrid\nupper,lower = np.vsplit(grid,[2])\nprint (upper, lower)",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 47,
+      "outputs": [
+        {
+          "name": "stdout",
+          "text": "[[0 1 2 3]\n [4 5 6 7]] [[ 8  9 10 11]\n [12 13 14 15]]\n",
+          "output_type": "stream"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
